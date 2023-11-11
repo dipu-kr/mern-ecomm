@@ -1,6 +1,7 @@
 import  express from "express"
 import dotenv from "dotenv"
 import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoute.js"
 
 // configure env
 dotenv.config();
@@ -12,6 +13,9 @@ connectDB()
 const app = express()
 
 app.use(express.json())
+
+
+app.use('/api/v1/auth',authRoutes)
 
 app.get("/",(req,res)=>{
     res.send("hello world dipu kumar")
