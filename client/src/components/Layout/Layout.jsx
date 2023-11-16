@@ -2,8 +2,9 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
+import  { Toaster } from "react-hot-toast";
 
-const Layout = ({ children,title, description, keywords, author }) => {
+const Layout = ({ children, title, description, keywords, author }) => {
   return (
     <div>
       <Helmet>
@@ -14,17 +15,20 @@ const Layout = ({ children,title, description, keywords, author }) => {
         <title>{title}</title>
       </Helmet>
       <Header />
-      <main>{children}</main>
+      <main>
+        <Toaster />
+        {children}
+      </main>
       <Footer />
     </div>
   );
 };
 
 Layout.defaultProps = {
-  title:"Ecommerce App-Shop Now",
-  description:'This is a Ecommerec App for new Fashion',
-  keywords:'T-shirt, Shirt, Jeans, Mobile, LEd Tv, Laptop',
-  author:'Dipu Kumar'
-}
+  title: "Ecommerce App-Shop Now",
+  description: "This is a Ecommerec App for new Fashion",
+  keywords: "T-shirt, Shirt, Jeans, Mobile, LEd Tv, Laptop",
+  author: "Dipu Kumar",
+};
 
 export default Layout;

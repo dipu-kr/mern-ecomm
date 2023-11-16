@@ -7,19 +7,19 @@ export const registerController = async (req,res) =>{
         const {name,email,password,phone,address} = req.body
         // validation
         if(!name){
-            return res.send({error:'Name is required'})
+            return res.send({message:'Name is required'})
         }
         if(!email){
-            return res.send({error:'Email is required'})
+            return res.send({message:'Email is required'})
         }
         if(!password){
-            return res.send({error:'Password is required'})
+            return res.send({message:'Password is required'})
         }
         if(!phone){
-            return res.send({error:'Phone Number is required'})
+            return res.send({message:'Phone Number is required'})
         }
         if(!address){
-            return res.send({error:'Address is required'})
+            return res.send({message:'Address is required'})
         }
 
         // existing user
@@ -27,7 +27,7 @@ export const registerController = async (req,res) =>{
 
         if(existingUser){
             return res.status(200).send({
-                success:true,
+                success:false,
                 message:"Already Register Please login"
             })
         }
@@ -43,12 +43,12 @@ export const registerController = async (req,res) =>{
             user
         })
 
-    }catch(error){
-        console.log(error)
+    }catch(message){
+        console.log(message)
         res.status(500).send({
             success:false,
             message:"Error in registration",
-            error:error
+            message:message
         })
     }
 }
@@ -96,12 +96,12 @@ export const loginController = async (req,res) =>{
             token:token
         })
 
-     }catch(error){
-        // console.log(error)
+     }catch(message){
+        // console.log(message)
         res.status(500).send({
             success:false,
             message:"Error in login",
-            error:error
+            message:message
         })
      }
 }
