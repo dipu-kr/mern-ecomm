@@ -6,10 +6,11 @@ const HomePage = () => {
   const [auth,setAuth]  = useAuth()
   return (
     <Layout title="Best Offer for Sale">
-        <h1>
+      <div className='w-full h-[calc(100vh-60px-90px)]'>
+      <h1>
            Home Page
         </h1>
-        <p>{JSON.stringify(auth,null,4)}</p>
+      </div>
     </Layout>
   )
 }
